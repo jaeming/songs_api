@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 6867cf5c4dcd0710f860c9ce40607eadae413693
+  branch: master
+  specs:
+    faker (2.17.0)
+      i18n (>= 1.6, < 2)
+
+GIT
   remote: https://github.com/rails/rails.git
   revision: dc7817cb42768ad01d69d5f9b0023f556760cb06
   branch: main
@@ -215,6 +223,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  faker!
   graphiql-rails
   graphql
   jbuilder (~> 2.7)

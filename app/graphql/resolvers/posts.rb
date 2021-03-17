@@ -5,6 +5,7 @@ module Resolvers
     argument :let_me_in, Boolean, required: true
 
     def resolve(let_me_in:)
+      # TODO
       [{title: 'yolo', text: 'moar'},{title: 'foo', text: 'bar'}]
     end
 

@@ -6,7 +6,8 @@ module Types
 
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
-    field :posts, resolver: Resolvers::Posts, description: 'A list of Posts'
-
+    field :posts, resolver: Resolvers::Posts, description: 'All Posts'
+    field :songs, resolver: Resolvers::Songs, description: 'All Songs'
+    field :song, resolver: Resolvers::Song, description: 'Song'
   end
 end
