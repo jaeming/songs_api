@@ -9,5 +9,9 @@ module Types
     field :posts, resolver: Resolvers::Posts, description: 'All Posts'
     field :songs, resolver: Resolvers::Songs, description: 'All Songs'
     field :song, resolver: Resolvers::Song, description: 'Song'
+    field :artist, resolver: Resolvers::Artist, description: 'Artists'
+    field :artists, resolver: Resolvers::Artists, description: 'All Artists'
+    field :album, resolver: Resolvers::Album, description: 'Album'
+    field :albums, resolver: Resolvers::Albums, description: 'All Albums'
   end
 end

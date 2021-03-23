@@ -10,23 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_13_150616) do
+ActiveRecord::Schema.define(version: 2021_03_23_023953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string "name"
+    t.integer "year"
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "songs", force: :cascade do |t|
     t.string "title", null: false
     t.text "lyrics"
     t.text "description"
-    t.string "artist"
-    t.string "album"
     t.string "cover"
     t.integer "duration"
     t.integer "year"
     t.boolean "published", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "artist_id"
+    t.bigint "album_id"
+    t.integer "album_track"
+    t.index ["album_id"], name: "index_songs_on_album_id"
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
 
+  add_foreign_key "albums", "artists"
+  add_foreign_key "songs", "albums"
+  add_foreign_key "songs", "artists"
 end
