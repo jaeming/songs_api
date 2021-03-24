@@ -5,7 +5,6 @@ module Types
       field :title, String, null: false
       field :lyrics, String, null: true
       field :description, String, null: true
-      field :cover, String, null: true
       field :duration, Int, null: true
       field :formatted_duration, String, null: true
       field :year, Integer, null: true
@@ -16,6 +15,14 @@ module Types
     
       def formatted_duration
         Time.at(object.duration).utc.strftime("%M:%S") if object.duration.present?
+      end
+
+      def artist
+        Loaders::RecordLoader.for(Artist).load(object.artist_id)
+      end
+
+      def album
+        Loaders::RecordLoader.for(Album).load(object.album_id)
       end
     end
   end

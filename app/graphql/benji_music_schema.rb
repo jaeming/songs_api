@@ -28,4 +28,5 @@ class BenjiMusicSchema < GraphQL::Schema
     # find an object in your application
     # ...
   end
+  use GraphQL::Batch
 end
